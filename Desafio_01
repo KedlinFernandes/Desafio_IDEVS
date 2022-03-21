@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<string.h>
+
+//FUNÇÃO RESPONSÁVEL PELA CONTAGEM DE PONTOS DE CADA CARACTERE DA STRING;
+int calculo (char str[], int x)
+{
+    int soma=0;
+
+    while(str[x]!='\0')
+    {
+        if (str[x]=='A'||str[x]=='E'||str[x]=='I'||str[x]=='O'||str[x]=='U'||str[x]=='L'||str[x]=='N'||str[x]=='R'||str[x]=='S'||str[x]=='T')
+        {
+            soma=soma+1;
+
+        }else if (str[x]=='D'||str[x]=='X')
+        {
+            soma=soma+2;
+
+        } else if (str[x]=='B'||str[x]=='C'||str[x]=='M'||str[x]=='P')
+        {
+            soma=soma+3;
+
+        }else if (str[x]=='F'||str[x]=='H'||str[x]=='V'||str[x]=='W'||str[x]=='Y')
+        {
+            soma=soma+4;
+
+        } else if (str[x]=='K')
+        {
+            soma=soma+5;
+
+        }else if (str[x]=='J'||str[x]=='X')
+        {
+            soma=soma+8;
+
+        } else if (str[x]=='Q'||str[x]=='O')
+        {
+            soma=soma+10;
+        }
+        x++;
+    }
+    return(soma);
+}
+
+int main (void)
+{
+    char palavra[50];
+    int valor,x=0;
+
+    gets(palavra); //LÊ A STRING;
+
+    while(palavra[x]!='\0')
+    {
+        palavra[x]=toupper(palavra[x]); //TRANSFORMA OS CARACTERES DA STRING EM MAIÚSCULOS;
+        x++;
+    }
+
+    x=0;
+    valor=calculo(palavra,x);//ENVIA OS PARÂMENTROS PARA A FUNÇÃO;
+
+    printf("O valor da palavra digitada e: %d\n",valor);//APRESENTA O VALOR CALCULADO;
+    return 0;
+}

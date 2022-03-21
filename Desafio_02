@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main (void)
+{
+    int i,j,div,aux,l;
+
+    for(i=1;i<=10000;i++)
+    {
+        div=0;
+        for(j=10000;j>0;j--)
+        {
+            if(i%j==0) //CALCULA, INDIVIDUALMENTE, O NUMERO DE DIVISORES DO INTERVALO [1,10.000]
+                div++;
+            }
+        }
+
+        if(aux==div&&l<20)//SE O NUMERO DE DIVISORES FOR IGUAL AO DA VARIAVEL AUXILIAR QUE ARMAZENOU O NÚMERO DE DIVISORES DO ANTECESSOR
+        {
+            printf(" %4d ",i-1);//ENTÃO  O PROGRAMA IMPRIMIRÁ O NÚMERO ANTECESSOR;
+            l++;
+        }else if (l==20)//A VARIAVEL l FUNCIONA APENAS PARA ORGANIZAR ESTÉTICAMENTE OS NUMEROS EM 20 COLUNAS;
+        {
+            printf("\n%4d ",i-1);
+            l=1;
+        }
+
+        aux=div;
+    }
+    return(0);
+}

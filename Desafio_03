@@ -1,0 +1,53 @@
+#include<stdio.h>
+
+int primo (int n) //FUNÇÃO RESPONSÁVEL POR VERIFICAR SE UM NÚMERO É PRIMO;
+{
+    int i,div=0;
+
+   for(i=1; i<=n; i++)
+    {
+        if(n%i == 0)
+        {
+            div++;
+        }
+    }
+    if(div == 2)
+    {
+        return(0);
+    }
+    else
+    {
+        return(1);
+    }
+}
+
+int main(void)
+{
+    int num,soma=0,i=2;
+
+    printf("limite: ");
+    scanf("%d",&num);
+
+    while(soma<num) //ENQUANTO A SOMA É MENOR QUE O LIMITE DIGITADO, SOMA SE OS PRIMOS;
+    {
+        if(primo(i)==0)
+        {
+            soma=soma+i;
+        }
+        i++;
+    }
+
+    while(primo(soma)==1)//SE, NO FINAL, A SOMA NÃO FOR UM PRIMO, REDUZ OS PRIMOS DA SOMA ATE ESTA TAMBÉM SER UM PRIMO;
+    {
+        if(primo(i)==0)
+        {
+            soma=soma-i;
+        }
+        i--;
+    }
+
+        printf("\nA maior soma de numeros primos consecutivos abaixo de %d eh igual a %d\n",num,soma);
+
+
+    return (0);
+}
